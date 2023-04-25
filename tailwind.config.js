@@ -26,6 +26,19 @@ module.exports = {
           100: '#e3e3e3',
           50: '#fdfdfd;',
         },
+        secondary: {
+          950: '#0B0B0B',
+          900: '#141414',
+          800: '#3f3f3f',
+          700: '#5a5a5a',
+          600: '#727272',
+          500: '#888888',
+          400: '#9e9e9e',
+          300: '#b5b5b5',
+          200: '#cccccc',
+          100: '#e3e3e3',
+          50: '#fdfdfd;',
+        },
         gray: {
           900: '#18181B',
           800: '#27272A',
@@ -40,7 +53,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: 'KrossNeueGrotesk, Helvetica, Arial, sans-serif',
+        sans: 'Inter, Helvetica, Arial, sans-serif',
       },
     },
   },
