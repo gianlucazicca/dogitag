@@ -157,6 +157,7 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    font-size: 1rem;
 }
 
 #app{
@@ -185,4 +186,17 @@ html {
 
 #main {
     display: block;
+}
+
+input {
+    @apply px-3 py-2 border border-light bg-primary-100 bg-opacity-30 rounded outline-none mb-2
+}
+input:focus {
+    @apply border-primary-950
+}
+button{
+    @apply px-3 py-2 border border-primary-950 bg-primary-950 rounded outline-none mb-2 text-light
+}
+button:hover{
+    @apply bg-primary-100 border-primary-100 text-dark
 }
