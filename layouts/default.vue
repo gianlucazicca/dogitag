@@ -11,7 +11,8 @@
                 </div>
                 <div>
                     <button
-                        class="mr-2 text-sm border border-primary-900 py-1 px-2 rounded-full hover:bg-primary-900 hover:text-primary-50 transition-all duration-200 ease-linear">Sign
+                        class="mr-2 text-sm border border-primary-900 py-1 px-2 rounded-full hover:bg-primary-900 hover:text-primary-50 transition-all duration-200 ease-linear"
+                        @click="$router.push('/app/login')">Sign
                         in</button>
                     <button
                         class="text-sm text-white border border-primary-900 bg-primary-900 py-1 px-2 rounded-full hover:bg-primary-50 hover:text-primary-900 transition-all duration-200 ease-linear">Sign

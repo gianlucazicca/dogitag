@@ -1,9 +1,17 @@
 import { defineStore } from "pinia";
-import { Database } from "~/types/supabase";
+import { Database, IDog } from "~/types/supabase";
 export const useDogStore = defineStore("DogStore", {
-    state: () => ({ dogs: null }),
+    state: () => ({ dogs: [] as Array<IDog> | [] }),
     getters: {},
     actions: {
+        setDogs(dogs: Array<IDog> | []) {
+            this.dogs = dogs
+        },
+        setDog(dog: IDog) {
+            const idx = this.dogs.findIndex((dog: IDog) => dog.id === dog.id);
+            if (idx > -1) this.dogs[idx] = dog;
+            else this.dogs.push(dog as never);
+        },
         async fetchDogs(user_id: string) {
             const client = useSupabaseClient<Database>();
             const { data, error } = await client.from('dogs').select('*').eq('dog_owner', user_id)
@@ -11,6 +19,16 @@ export const useDogStore = defineStore("DogStore", {
             if (error) return error
             else return data
         },
+
+        onDeleteDog(dog_id: number) {
+            const idx = this.dogs.findIndex((dog: IDog) => dog.id === dog_id);
+            if (idx > -1) this.dogs.splice(idx, 1);
+        },
+
+        resetDogStore() {
+            this.dogs = [];
+        },
+
         async createDog(dogName: string, user_id: string) {
             const client = useSupabaseClient<Database>();
             const { data, error } = await client

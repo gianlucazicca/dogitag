@@ -2,14 +2,16 @@
 import { resolve } from 'path';
 export default defineNuxtConfig({
   modules: [
-    '@pinia/nuxt',
     '@nuxt/devtools',
     '@nuxtjs/supabase',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+    'nuxt-icon',
   ],
   devtools: {
     enabled: true,
   },
- 
+
   alias: {
     '@': resolve(__dirname, '/'),
   },

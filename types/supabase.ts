@@ -1,3 +1,17 @@
+export interface IDog {
+    created_at: string | null
+    dog_owner: string | null
+    dog_profile: any | null
+    health_pass: any | null
+    id: number
+    mapped_url: number | null
+    updated_at: string | null
+}
+
+export interface IDogs {
+    dogs: Array<IDog>
+}
+
 export type Json =
     | string
     | number
