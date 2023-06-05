@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { resolve } from 'path';
 export default defineNuxtConfig({
+  plugins: [
+  ],
   modules: [
     '@nuxt/devtools',
     '@nuxtjs/supabase',
@@ -21,5 +23,10 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  routeRules: {
+    // Homepage pre-rendered at build time
+    '/scan': { ssr: false },
+    '/scan/test': { ssr: false },
   },
 });

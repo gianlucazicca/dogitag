@@ -195,7 +195,7 @@ input:focus {
     @apply border-primary-950
 }
 button{
-    @apply px-3 py-2 border border-primary-950 bg-primary-950 rounded outline-none mb-2 text-light
+    @apply px-3 py-2 border border-primary-base bg-primary-base rounded outline-none mb-2 text-light
 }
 button:hover{
     @apply bg-primary-100 border-primary-100 text-dark

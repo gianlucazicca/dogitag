@@ -1,19 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './components/**/*.{js,vue,ts}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
-    './app.vue',
-  ],
+  content: ['./components/**/*.{js,vue,ts}', './layouts/**/*.vue', './pages/**/*.vue', './plugins/**/*.{js,ts}', './nuxt.config.{js,ts}', './app.vue'],
   theme: {
     extend: {
       colors: {
         dark: '#0c0c0d',
         light: '#ffffff',
         primary: {
+          base: '#58B19F',
           950: '#0B0B0B',
           900: '#141414',
           800: '#3f3f3f',
@@ -27,6 +21,7 @@ module.exports = {
           50: '#fdfdfd;',
         },
         secondary: {
+          base: '#e3e3e3',
           950: '#0B0B0B',
           900: '#141414',
           800: '#3f3f3f',
