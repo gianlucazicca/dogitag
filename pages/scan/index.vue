@@ -12,7 +12,10 @@
             </div>
             <button @click="cancelScanning">Cancel Scan</button>
         </div>
-        <div v-for="cam in cameras">{{ cam.id }} {{ cam.label }}</div>
+        <select v-model="useCamera" @change="changeCamera">
+            <option disabled :value="null">Kamera auswählen</option>
+            <option v-for="cam in cameras" :value="cam.id">{{ cam.label }}</option>
+        </select>
         {{ resultScanURL }}
     </div>
 </template>
@@ -28,10 +31,16 @@ const videoContainer = ref(null)
 const qrVideo = ref(null)
 const qrScanner = ref(null)
 const cameras = ref(null)
-
+const useCamera = ref(null)
 onMounted(async () => {
     cameras.value = await QrScanner.listCameras(true);
-    console.log('cameras', cameras.value);
+});
+
+const changeCamera = () => {
+    console.log(useCamera.value);
+    console.log(qrScanner.value);
+}
+const setupQrScanner = () => {
     qrScanner.value = new QrScanner(
         qrVideo.value,
         result => {
@@ -45,14 +54,13 @@ onMounted(async () => {
             maxScansPerSecond: 1,
         },
     );
-});
+    qrScanner.value.setCamera(useCamera.value);
+    qrScanner.value.start();
+}
 
 const startScanning = () => {
-
-    qrScanner.value.start();
+    setupQrScanner();
     isScanning.value = true;
-
-    console.log(qrVideo.value.clientHeight)
 };
 const cancelScanning = () => {
     isScanning.value = false;
