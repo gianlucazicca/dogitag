@@ -12,6 +12,7 @@
             </div>
             <button @click="cancelScanning">Cancel Scan</button>
         </div>
+        <div v-for="cam in cameras">{{ cam.id }} {{ cam.label }}</div>
         {{ resultScanURL }}
     </div>
 </template>
@@ -26,8 +27,11 @@ const isScanning = ref(false)
 const videoContainer = ref(null)
 const qrVideo = ref(null)
 const qrScanner = ref(null)
+const cameras = ref(null)
 
-onMounted(() => {
+onMounted(async () => {
+    cameras.value = await QrScanner.listCameras(true);
+    console.log('cameras', cameras.value);
     qrScanner.value = new QrScanner(
         qrVideo.value,
         result => {
